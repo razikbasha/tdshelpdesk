@@ -1,0 +1,81 @@
+<div class="col-md-6 float-left formbg">
+    <h4 class="headerhd"><i class="far fa-file-alt"></i>&nbsp;Create Ticket</h4>
+    <form name="form" class="formcont" (ngSubmit)="f.form.valid && ticket()" #f="ngForm" novalidate>
+<input type="hidden" class="form-control" name="ticketid" [(ngModel)]="model.ticketid" #ticketid="ngModel" [value]=model.ticketid  />       
+ <input type="hidden" class="form-control" name="ownername" [(ngModel)]="model.ownername" #ownername="ngModel" [value]=model.ownername  />
+  <input type="hidden" class="form-control" name="ticketdate" [(ngModel)]="model.ticketdate" #ticketdate="ngModel" [value]=model.ticketdate  />
+ <input type="hidden" class="form-control" name="status" [(ngModel)]="model.status" #status="ngModel" [value]=model.status  />
+ <input type="hidden" class="form-control" name="visible" [(ngModel)]="this.model.visible" #visible="ngModel" [value]=this.model.visible  />
+<div class="mt-3 form-group" [ngClass]="{ 'has-error': f.submitted && !firstName.valid }">
+            <label for="firstName">Subject</label>
+            <input type="text" class="form-control" name="firstName" [(ngModel)]="model.subject" #firstName="ngModel" required />
+            <div *ngIf="f.submitted && !firstName.valid" class="help-block">First Name is required</div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !lastName.valid }">
+            <label for="lastName">Description</label>
+            <textarea class="form-control" name="lastName" [(ngModel)]="model.description" #lastName="ngModel" rows="5" required ></textarea>
+            <div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-12 p-0 float-left mt-2">
+            <div class="col-md-6 p-0 float-left form-group" [ngClass]="{ 'has-error': f.submitted && !firsName.valid }">
+                <label for="firsName">Groups</label>
+                
+                <select   [(ngModel)]="model.group" name="firsName" required #firsName="ngModel" >
+                    <option *ngFor="let user of groupp" [ngValue]="user.groupname" >
+                            {{ user.groupname }}
+                    </option>
+                </select>
+                <div>{{model.members}}</div>
+                <div *ngIf="f.submitted && !firsName.valid" class="help-block">Atleast One Member is required</div>
+            </div>
+            <div class="col-md-6 p-0 float-left form-group" [ngClass]="{ 'has-error': f.submitted && !firsName.valid }">
+                <label for="firsName">Tag</label>
+                
+                <select   [(ngModel)]="model.tags" name="firsName" required #firsName="ngModel" >
+                    <option *ngFor="let user of tag" [ngValue]="user.tagname" >
+                            {{ user.tagname }}
+                    </option>
+                </select>
+                <div>{{model.members}}</div>
+                <div *ngIf="f.submitted && !firsName.valid" class="help-block">Atleast One Member is required</div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-12 p-0 float-left mt-2">
+            <div class="col-md-6 p-0 float-left form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+                <label for="password">Type</label>
+                <select [(ngModel)]="model.type" name="type" required #type ="ngModel">
+                        <option *ngFor="let t of types" [ngValue]="t.typename">
+                            {{ t.typename }}
+                        </option>
+                </select>
+                <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+            </div>
+            <div class="col-md-6 p-0 float-left form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+                <label for="fullname">Priority</label>
+
+                <select [(ngModel)]="model.priority" name="priority" required #priority="ngModel">
+                        <option *ngFor="let user of arrBirds" [ngValue]="user.name">
+                            {{ user.name }}
+                        </option>
+                </select>
+                <div *ngIf="f.submitted && !username.valid" class="help-block">fullname is required</div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-md-12 mt-3 float-left form-group">
+            <button [disabled]="loading" class="btn btn-primary">Create</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a [routerLink]="['/dashboard']" class="btn btn-link">Cancel</a>
+        </div>
+    </form>
+</div>
+
+
+
+<div *ngFor="let tic of bookid" >
+{{tic.ticketid}}
+</div>
+
+

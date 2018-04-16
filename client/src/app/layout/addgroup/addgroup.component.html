@@ -1,0 +1,74 @@
+<div class="col-md-12 float-left pb-2 mb2" style="border-bottom:1px solid #f4f4f4;">
+        <div class="col-md-5 float-left">
+            <button class="btn btn-primary greenbtn" (click)="ticketopen()">Open</button>
+            <button class="btn btn-primary orangebtn" (click)="ticketpending()">Pending</button>
+            <button class="btn btn-primary redbtn" (click)="ticketclose()">Close</button>
+            <button class="btn btn-tktid" (click)="alltickets()">All Tickets</button>
+        </div>
+</div>
+
+
+
+<div id="group" >
+<div class="col-md-6 col-md-offset-3">
+    
+    <form name="form" (ngSubmit)="f.form.valid && group()" #f="ngForm" >
+     </form>
+  </div>
+  
+</div>
+
+<div class="col-md-12 float-left box" *ngIf="showHide">
+    <div class="float-right mt-2"><button class="btn btn-primary btn-back" type="button" (click)="changeShowStatus()">Create</button></div>
+  <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <h2 class="mt-3">Groups</h2>
+                <div *ngFor="let gr of groupp" class="float-left mt-3 groupbox">
+                    <div class="float-right" style="font-size: 12px;color:#fd9644;
+                    margin-right: 5px;"><span class="cursorpointer" style="margin-right:10px;"><i class="fa fa-pencil-alt"></i></span><span class="cursorpointer"><i class="far fa-trash-alt"></i></span></div>
+                    <div class="clearfix"></div>
+                        <div class="col-md-12 float-left">
+                            {{ gr.groupname }} <div>{{ gr.members.length}}</div>   
+                        </div>  
+                </div>
+                <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+    </div>
+</div>
+  
+  <div *ngIf="showHidee">
+        <div class="float-right mt-2"><button class="btn btn-primary btn-back" type="button" (click)="changeShowStatus()">Back</button></div>
+        <div class="float-left col-md-6  formbg mt-3">
+                <h4 class="headerhd"><i class="far fa-file-alt"></i>&nbsp;Create Group</h4>
+                <form name="form" class="formcont" (ngSubmit)="f.form.valid && group()" #f="ngForm" novalidate>
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !firstName.valid }">
+                        <label for="firstName">Group Name</label>
+                        <input type="text" class="form-control" name="firstName" [(ngModel)]="model.groupname" #firstName="ngModel" required />
+                        <div *ngIf="f.submitted && !firstName.valid" class="help-block">Tag Name is required</div>
+                    </div>
+              
+                    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !firsName.valid }">
+                      <label for="firsName">Members</label>
+                      
+                      <select multiple style="width:50%;" [(ngModel)]="model.members" name="firsName" required #firsName="ngModel" >
+                          <option *ngFor="let user of users" [ngValue]="user._id" >
+                               {{ user.fullname }}
+                          </option>
+                    </select>
+                    <div>{{model.members}}</div>
+                      <div *ngIf="f.submitted && !firsName.valid" class="help-block">Atleast One Member is required</div>
+                  </div>
+              
+                  
+                    <div class="form-group">
+                        <button [disabled]="loading" class="btn btn-primary">Create Group</button>
+                        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                        <a [routerLink]="['/dashboard']" class="btn btn-link">Cancel</a>
+                    </div>
+                </form>
+              </div>
+
+  </div>
+  
+  
+  
+    
+  

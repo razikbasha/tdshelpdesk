@@ -1,0 +1,141 @@
+<div class="col-md-12 float-left pb-2" style="border-bottom:1px solid #f4f4f4;">
+        <div class="col-md-5 float-left">
+            <button class="btn btn-primary greenbtn" (click)="ticketopen()">Open</button>
+            <button class="btn btn-primary orangebtn" (click)="ticketpending()">Pending</button>
+            <button class="btn btn-primary redbtn" (click)="ticketclose()">Close</button>
+            <button class="btn btn-tktid" (click)="alltickets()">All Tickets</button>
+        </div>
+</div>
+
+
+
+        <div *ngIf="showHidee">
+                    <table id="razik" class="table" *ngIf="showHidee">
+                      <tr>
+                          <th>#</th>
+                          <th>Ticket ID</th>
+                          <th>Owner Nameeee</th>
+                          <th>Status</th> 
+                          <th>Subject</th>
+                          <th>Description</th>
+                          <th>Groupname</th>
+                          <th>Type</th> 
+                          <th>Tags</th>
+                          <th>Priority</th>
+                          <th>Created Date</th>
+                      </tr>
+                      <tr *ngFor="let user of book;let i = index">
+                          <td>{{i + 1}}</td>
+                         
+                          <td><button class="btn btn-tktid" (click)="ticketinfo(user.ticketid)">{{user.ticketid}}</button></td>
+                          <td>{{user.ownername}}</td>
+                          <td><div class="btn btn-primary orangebtn">{{user.status}}</div></td>
+                          <td>{{user.subject}}</td>
+                          <td>{{user.description}}</td>
+                          <td>{{user.group}}</td>
+                          <td>{{user.type}}</td>
+                          <td>{{user.tags}}</td>
+                          <td>{{user.priority}}</td>
+                          <td>{{user.ticketdate}}</td>
+                      </tr>
+                    </table>
+                </div>
+
+<div class="float-left box pt-4" *ngIf="showHide">
+        <button class="btn btn-back" type="button" (click)="changeShowStatus()"><i class="fa fa-long-arrow-alt-left"></i>&nbsp;Back</button>
+        <h2 class="col-md-4 float-left">Tickets--{{tickett.ticketid}}</h2> 
+        <div class="col-md-12 float-left mt-4">
+                <div class="col-md-4 float-left" style="border-right:1px solid #f4f4f4;">
+                    <div>
+                        <div class="grouptext float-left mr-3">Group</div>&nbsp;&nbsp;
+                        <div class="float-left" style="line-height:40px;">{{tickett.group}}</div>
+                    </div>
+                    <div>
+                            <div class="col-md-12 float-left mt-3" style="padding:0px;">
+                                <div class="float-left">
+                                    <div class="float-left mr-3">Status</div>&nbsp;&nbsp;
+                                    <div class="float-left" [ngClass]="{
+                                        'opencolor':tickett.status === 'Open',
+                                        'pendingcolor':tickett.status === 'Pending',
+                                        'closecolor':tickett.status === 'Closed'
+                                      }">{{tickett.status}}</div>
+                                </div>
+                                <div class="float-right">
+                                    <div class="float-left mr-3">Priority</div>&nbsp;&nbsp;
+                                    <div class="float-left" [ngClass]="{
+                                        'normalcolor':tickett.priority === 'Normal',
+                                        'urgentcolor':tickett.priority === 'Urgent',
+                                        'criticalcolor':tickett.priority === 'Critical'
+                                      }">{{tickett.priority}}</div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="mt-3">Assignee</div>
+                            <div class="col-md-12 card-header float-left" style="border-bottom:none;">
+                                    <div class="float-left" style="margin-right:20px;width:60px;height:60px;border-radius:80px;background:#fff;"></div>
+                                    <div class="float-left">
+                                        <div>No User Assigned</div>
+                                        
+                                    </div>
+                            </div>
+                    </div>
+                    
+
+                </div>
+                <div class="col-md-8 float-left">
+                        <div class="float-right deletetiket" style="" (click)="ticketdelete(tickett._id)">
+                                <i class="fa fa-trash-alt"></i>
+                            </div>
+                    <span>Ticket Description</span>
+                    <div class="col-md-12 card-header float-left" style="border-bottom:none;">
+                        <div class="float-left" style="margin-right:20px;width:60px;height:60px;border-radius:80px;background:#fff;"></div>
+                        <div class="float-left">
+                            <div style="font-size:18px;">{{tickett.subject}}</div>
+                            <div style="font-size:14px;">{{tickett.ownername}}</div>
+                            <div style="font-size:14px;">{{tickett.ticketdate}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 float-left mt-3">
+                            <div>{{tickett.description}}</div>
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+
+        </div>
+
+
+
+
+<!--table class="table">
+  <tr>
+      
+      <th>Ticket ID</th>
+      <th>Ownerrrrrr Name</th>
+      <th>Status</th> 
+      <th>Subject</th>
+      <th>Description</th>
+      <th>Groupname</th>
+      <th>Type</th> 
+      <th>Tags</th>
+      <th>Priority</th>
+      <th>Created Date</th>
+  </tr>
+  <tr >
+     
+      <td>{{tickett.ticketid}}</td>
+      <td>{{tickett.ownername}}</td>
+      <td>{{tickett.status}}</td>
+      <td>{{tickett.subject}}</td>
+      <td>{{tickett.description}}</td>
+      <td>{{tickett.group}}</td>
+      <td>{{tickett.type}}</td>
+      <td>{{tickett.tags}}</td>
+      <td>{{tickett.priority}}</td>
+      <td>{{tickett.ticketdate}}</td>
+  </tr>
+</table-->
+
+</div>

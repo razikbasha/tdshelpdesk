@@ -1,0 +1,99 @@
+$topnav-background-color: #2b343d;
+:host {
+    .navbar {
+        background-color: #fff;
+        .navbar-brand {
+            color: #fff;
+        }
+        .nav-item > a {
+            color: #cfe3eb;
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+    .messages {
+        width: 300px;
+        .media {
+            border-bottom: 1px solid #ddd;
+            padding: 5px 10px;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        .media-body {
+            h5 {
+                font-size: 13px;
+                font-weight: 600;
+            }
+            .small {
+                margin: 0;
+            }
+            .last {
+                font-size: 12px;
+                margin: 0;
+            }
+        }
+    }
+}
+.dropdown-menu {right:0px !important;}
+.show { right:0px !important;  }
+.dropdown-toggle::after { display: none; }
+.dropup, .dropdown { margin-right:20px; }
+.coloriconhead { color:#cfe3eb; cursor: pointer; }
+.tdslogo { width: 135px;
+    height: 35px;
+    float: left;
+    margin-top: -6px;
+    padding: 0px 5px;
+    display: block; }
+.tdslogo img{
+    width:100%;
+}
+
+
+/****************************************************************/
+.box{
+    float: right;
+    overflow: hidden;
+    background: red;
+    position: absolute;
+    right: 0px;
+    top: 50px;
+    z-index: 9999;
+    display:none;
+    min-height: 100%;
+    
+}
+.box-inner{
+    width: 280px;
+    padding: 10px;
+    border: 1px solid #a29415;
+}
+.main-container-head {
+    margin-left: 215px;
+    padding: 0px;
+    -ms-overflow-x: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border-bottom:1px solid #e3e3e3;
+}
+.main-container-head.active{margin-left: 60px;transition: all 0.3s;}
+.main-container-head .nav-link {color:#0f0f0f !important;}
+.menuPlus
+{   width: 25px;
+    height: 25px;
+    background:#37b7e0;
+    color: #fff !important;
+    border-radius: 50px;
+    margin-top: 6px;
+    margin-left:20px;
+    padding: 0px 0px 0px 4px !important;
+}
+.menuPlus span {
+    color:#fff;
+}

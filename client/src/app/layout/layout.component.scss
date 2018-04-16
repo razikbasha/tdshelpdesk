@@ -1,0 +1,18 @@
+.main-container {
+    margin-top: 0px;
+    background: #f4f4f4;
+    margin-left: 215px;
+    padding: 0px;
+    min-height:650px;
+    -ms-overflow-x: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    overflow: hidden;transition: all 0.3s;
+}
+.main-container.active{margin-left: 60px;transition: all 0.3s;}
+@media screen and (max-width: 992px) {
+    .main-container {
+        margin-left: 0px !important;
+    }
+}

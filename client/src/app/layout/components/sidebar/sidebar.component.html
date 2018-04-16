@@ -1,0 +1,47 @@
+<nav id="sidebar" class="sidebar">
+    <div class="pt-3 pb-2">
+            <a class="navbar-brand tdslogo"> <img src="assets/images/tdslogo.png"></a>
+    </div>
+    <div class="clearfix"></div>
+    <div class="list-group mt-3">
+        <div class="mt-2 mb-2">
+            <a [routerLink]="['/ticketdashboard']" class="list-group-item sidebarMenus">
+                {{ 'Tickets' | translate }}<span class="float-right"><i class="flaticon-plus" aria-hidden="true"></i></span>
+            </a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link circletext" style="background:#f67dbc;" href="#">Ra</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link circletext" style="background:#69b9ec;" href="#"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link circletext" style="background:#f4795d;" href="#"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link circletext" style="background:#72d07b;"href="#"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link circletext" style="background:#f3c980;" href="#"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link circletext" style="background:#f6a321;" href="#"></a>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="mt-2 mb-2">
+            <a [routerLink]="['/bs-element']" class="list-group-item sidebarMenus">
+                {{ 'Reports' | translate }}
+            </a>
+        </div>
+        <div class="mt-2 mb-2">
+            <a [routerLink]="['/addgroup']" class="list-group-item sidebarMenus">
+                {{ 'Groups' | translate }}
+            </a>
+        </div>  
+    </div>
+</nav>
+<div  class="" id="sidebarCollapse">
+    <div class="sidebarButtoncolap text-center"><i class="fas fa-chevron-left"></i></div>
+</div>

@@ -1,0 +1,31 @@
+
+        <h2 class="col-md-4 float-left">Tickets</h2>
+        <div class="col-md-5 float-right align-right">
+                <button class="btn btn-primary greenbtn" (click)="ticketopen()">Open</button>
+                <button class="btn btn-primary orangebtn" (click)="ticketpending()">Pending</button>
+                <button class="btn btn-primary redbtn" (click)="ticketclose()">Close</button>
+        </div>
+
+<div class="col-md-12 float-left mtb30">
+    <div class="col-md-4 float-left">
+        <div style="background:#fd8877;padding:10px 15px;color:#fff;">
+                <div>Open Tickets</div> 
+                <h1>{{ book.length }} </h1>
+        </div>
+     </div>
+     <div class="col-md-4 float-left">
+        <div style="background:#6cb1b8;padding:10px 15px;color:#fff;">
+                <div> Pending Tickets</div>
+                <h1>{{ bookone.length }}</h1>
+        </div>
+      </div>
+      <div class="col-md-4 float-left">
+                <div style="background:#f6d087;padding:10px 15px;color:#fff;">
+                        <div> Close Tickets</div>
+                        <h1>{{ booktwo.length }}</h1>
+                </div>
+       </div>
+</div>
+
+
+

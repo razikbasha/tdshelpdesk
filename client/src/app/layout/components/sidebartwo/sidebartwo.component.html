@@ -1,0 +1,88 @@
+<nav id="sidebar" class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+  <div class="list-group">
+      <a routerLink="/moddashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+          <i class="fas fa-tachometer-alt"></i>&nbsp;<span class="sidecollapse">{{ 'Dashboard' | translate }}</span>
+      </a>
+      <div class="nested-menu">
+              <a [routerLink]="['/modtickets']" [routerLinkActive]="['router-link-active']" class="list-group-item clickOpen" (click)="addExpandClass('pages')">
+                  <span><i class="fas fa-ticket-alt"></i>&nbsp;<span class="sidecollapse"> {{ 'Tickets' | translate }}</span></span>
+              </a>
+              <li class="nested" [class.expand]="showMenu === 'pages'">
+                  <ul class="submenu">
+                      <li>
+                          <a [routerLink]="['/addmodticket']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                              <i class="fa fa-fw fa-edit"></i>&nbsp;{{ 'Create Ticket' | translate }}
+                          </a>
+                      </li>
+                     
+                      <li>
+                          <a [routerLink]="['/moderatoractive']" [routerLinkActive]="['router-link-active']"><span>{{ 'Active' | translate }}</span></a>
+                      </li>
+                      <li>
+                          <a href="javascript:void(0)"><span>{{ 'Assigned' | translate }}</span></a>
+                      </li>
+  
+                     
+  
+  
+                  </ul>
+              </li>
+          </div>
+     
+          
+            <a [routerLink]="['/modmsg']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <i class="fa fa-fw fa-edit"></i>&nbsp;{{ 'Messages' | translate }}
+            </a>
+       <a [routerLink]="['/modacc']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <i class="fa fa-fw fa-edit"></i>&nbsp;{{ 'Accounts' | translate }}
+            </a>
+        
+            <a [routerLink]="['/modreports']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <i class="fa fa-fw fa-edit"></i>&nbsp;{{ 'Reports' | translate }}
+            </a>
+        
+            <a [routerLink]="['/modnotices']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <i class="fa fa-fw fa-edit"></i>&nbsp;{{ 'Notices' | translate }}
+            </a>
+        
+      
+      
+
+
+     
+     
+      <div class="header-fields">
+          <a (click)="rltAndLtr()" class="list-group-item">
+              <span><i class="fa fa-arrows-h"></i>&nbsp; RTL/LTR</span>
+          </a>
+          <div class="nested-menu">
+              <a class="list-group-item" (click)="addExpandClass('profile')">
+                  <span><i class="fa fa-user"></i>&nbsp;chary</span>
+              </a>
+              <li class="nested" [class.expand]="showMenu === 'profile'">
+                  <ul class="submenu">
+                      <li>
+                          <a href="javascript:void(0)">
+                              <span><i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}</span>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="javascript:void(0)">
+                              <span><i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}</span>
+                          </a>
+                      </li>
+                    
+                      <li>
+                          <a [routerLink]="['/login']" (click)="onLoggedout()">
+                              <span><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}</span>
+                          </a>
+                      </li>
+                  </ul>
+              </li>
+          </div>
+      </div>
+  </div>
+</nav>
+<div  class="" id="sidebarCollapse">
+  <div class="sidebarButtoncolap text-center"><i class="fas fa-chevron-left"></i></div>
+</div>
