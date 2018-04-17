@@ -50,6 +50,9 @@ $topnav-background-color: #2b343d;
 .tdslogo img{
     width:100%;
 }
+.log-out .show{
+    right:0px !important;
+}
 
 
 /****************************************************************/
@@ -73,11 +76,7 @@ $topnav-background-color: #2b343d;
 .main-container-head {
     margin-left: 215px;
     padding: 0px;
-    -ms-overflow-x: hidden;
-    overflow-x: hidden;
-    overflow-y: scroll;
     position: relative;
-    overflow: hidden;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
     border-bottom:1px solid #e3e3e3;
@@ -91,6 +90,7 @@ $topnav-background-color: #2b343d;
     color: #fff !important;
     border-radius: 50px;
     margin-top: 6px;
+    cursor: pointer;
     margin-left:20px;
     padding: 0px 0px 0px 4px !important;
 }
